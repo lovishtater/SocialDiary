@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "39288724873",
+    "firebase_url": "https://social-media-34764-default-rtdb.firebaseio.com",
+    "project_id": "social-media-34764",
+    "storage_bucket": "social-media-34764.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39288724873:android:3093faaf09d8a429bb9558",
+        "android_client_info": {
+          "package_name": "com.socialdiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39288724873-2p8u0gr9bkmm5hoci2p492n6ka8eb2nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbFG3VJY9wnODCwIhe01EzFZXIPEaQpzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39288724873-2p8u0gr9bkmm5hoci2p492n6ka8eb2nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
