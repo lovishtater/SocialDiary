@@ -62,13 +62,22 @@ const Post = ({item, userDetails}) => {
         .then(() => console.log('DOWNVOTED'))
     }
 
+    const getDate = () => {
+      let date = new Date(item.date)
+      let day = date.getDate()
+      let month = date.getMonth() + 1
+      let year = date.getFullYear()
+
+      return `${day}/${month}/${year}`
+    }
+
     
 
     return (
       <Card
         style={{
-          backgroundColor: '#0f4c75',
-          borderColor: '#0f4c75',
+          backgroundColor: '#4B7BE5',
+          borderColor: '#4B7BE5',
         }}>
         <CardItem
           style={{
@@ -79,19 +88,30 @@ const Post = ({item, userDetails}) => {
             <Body>
               <Text
                 style={{
-                  color: '#fdcb9e',
+                  color: '#eee',
+                  fontWeight: 'bold',
                 }}>
                 {item.by}
               </Text>
-  
-              <Text note>{item.location}</Text>
+
+              <Text 
+                style={{
+                  color: '#eee',
+                  fontSize: 12,
+                }}
+              >{item.location}</Text>
+              <Text
+              style={{
+                color: '#eee',
+                fontSize: 12,
+              }}>{getDate()}</Text>
             </Body>
           </Left>
         </CardItem>
         <CardItem cardBody>
           <Image
             source={{uri: item.picture}}
-            style={{height: 200, width: null, flex: 1}}
+            style={{height: 250, width: null, flex: 1}}
           />
         </CardItem>
         <CardItem
@@ -103,14 +123,16 @@ const Post = ({item, userDetails}) => {
             numberOfLines={2}
             style={{
               color: '#fff',
+              marginHorizontal: 10,
             }}>
-            {item.description}
+            {item.description.substring(0, 100)} 
+            {item.description.length > 100 ? '...' : ''}
           </Text>
         </CardItem>
-  
+
         <CardItem
           style={{
-            backgroundColor: '#0f4c75',
+            backgroundColor: '#4B7BE5',
           }}>
           <Left>
             <Button transparent onPress={upVotePost}>
@@ -136,7 +158,7 @@ const Post = ({item, userDetails}) => {
                 style={{
                   color: '#fdcb9e',
                 }}>
-                 {downvote}
+                {downvote}
               </Text>
             </Button>
           </Left>

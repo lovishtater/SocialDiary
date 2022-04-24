@@ -5,8 +5,8 @@ export const getPosts = () => async (dispatch) => {
   try {
     database()
       .ref('/posts/')
+      .orderByChild("date")
       .on('value', (snapshot) => {
-        console.log('User data: ', snapshot.val());
         if (snapshot.val()) {
           dispatch({
             type: SET_POST,

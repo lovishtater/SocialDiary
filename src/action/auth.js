@@ -1,6 +1,7 @@
 import auth from '@react-native-firebase/auth'
 import Snackbar from 'react-native-snackbar'
 import database from '@react-native-firebase/database'
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
 
 export const signUp = (data) => async (dispatch) => {
@@ -82,3 +83,29 @@ export const signOut = () => async (dispatch) => {
         })
     })
 }
+
+// export const googleSignIn = async() => {
+//     const { idToken, accessToken } = await GoogleSignin.signIn();
+
+//     const credential = auth.GoogleAuthProvider.credential(idToken, accessToken);
+
+//     auth()
+//     .signInWithCredential(credential)
+//     .then(() => {
+//         Snackbar.show({
+//             text: "SignIn success",
+//             textColor: "white",
+//             backgroundColor: "#1b262c"
+//         })
+//     }
+//     )
+//     .catch((error) => {
+//         console.log(error)
+//         Snackbar.show({
+//             text: "SignIn failed",
+//             textColor: "white",
+//             backgroundColor: "red"
+//         })
+//     }
+//     )
+// }

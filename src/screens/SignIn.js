@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {StyleSheet, ScrollView, Image, TouchableOpacity} from 'react-native'
-
+import {
+  GoogleSigninButton
+} from '@react-native-google-signin/google-signin';
 import {
     Container,
     Form,
@@ -11,11 +13,11 @@ import {
     H3
 } from 'native-base'
 
-import Welcome from '../assets/undraw_welcome_cats_thqn.png'
+import Welcome from '../assets/tlogo.png'
 
 
 import {connect} from 'react-redux'
-import {signIn} from '../action/auth'
+import {signIn, googleSignIn} from '../action/auth';
 import propTypes from 'prop-types'
 
 const SignIn = ({navigation, signIn}) => {
@@ -29,75 +31,83 @@ const SignIn = ({navigation, signIn}) => {
 
 
     return (
-        <Container style={styles.container}>
-          <ScrollView contentContainerStyle={{flexGrow: 1}}>
-            <H3 style={styles.heading}>Welcome to the Travel-gram Social App</H3>
-    
-            <Image
-              source={Welcome}
-              style={{width: null, height: 150, marginTop: 30}}
-              resizeMode="contain"
-            />
-    
-            <Form>
-              <Item rounded style={styles.formItem}>
-                <Input
-                  placeholder="enter your registerd email"
-                  value={email}
-                  style={{color: '#eee'}}
-                  onChangeText={(text) => setEmail(text)}
-                />
-              </Item>
-              <Item rounded style={styles.formItem}>
-                <Input
-                  placeholder="enter your registerd password"
-                  value={password}
-                  secureTextEntry={true}
-                  style={{color: '#eee'}}
-                  onChangeText={(text) => setPassword(text)}
-                />
-              </Item>
-              <Button rounded block onPress={doSignIn}>
-                <Text>SignIn</Text>
-              </Button>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('SignUp')}
-                style={{marginTop: 10}}>
-                <Text style={{color: '#fff', textAlign: 'center'}}>
-                  Do not have an account, SignUp here
-                </Text>
-              </TouchableOpacity>
-            </Form>
-          </ScrollView>
-        </Container>
-      );
+      <Container style={styles.container}>
+        <ScrollView contentContainerStyle={{flexGrow: 1}}>
+          <Image
+            source={Welcome}
+            style={{width: null, height: 150, marginTop: 30}}
+            resizeMode="contain"
+          />
+
+          <Form style={{margin: '5%'}}>
+            <Item rounded style={styles.formItem}>
+              <Input
+                placeholder="Enter email"
+                value={email}
+                style={{color: '#000'}}
+                onChangeText={text => setEmail(text)}
+              />
+            </Item>
+            <Item rounded style={styles.formItem}>
+              <Input
+                placeholder="Enter password"
+                value={password}
+                secureTextEntry={true}
+                style={{color: '#000'}}
+                onChangeText={text => setPassword(text)}
+              />
+            </Item>
+            <Button rounded block onPress={doSignIn}>
+              <Text>SignIn</Text>
+            </Button>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('SignUp')}
+              style={{marginTop: 10}}>
+              <Text style={{color: '#000', textAlign: 'center'}}>
+                Do not have an account, SignUp here
+              </Text>
+            </TouchableOpacity>
+          </Form>
+          {/* <GoogleSigninButton
+
+            style={{width: 192, height: 48 , marginLeft: "25%"}}
+            size={GoogleSigninButton.Size.Wide}
+            color={GoogleSigninButton.Color.Dark}
+            onPress={() => googleSignIn()}
+          /> */}
+        </ScrollView>
+      </Container>
+    );
 }
 
 const mapDispatchToProps = {
-    signIn: (data) => signIn(data)
+    signIn: (data) => signIn(data),
+    googleSignIn: () => googleSignIn()
+
 }
 
 SignIn.propTypes = {
-    signIn: propTypes.func.isRequired
+    signIn: propTypes.func.isRequired,
+    googleSignIn: propTypes.func.isRequired
 }
 
 
 export default connect(null, mapDispatchToProps)(SignIn)
 
 const styles = StyleSheet.create({
-    container: {
-      backgroundColor: '#1b262c',
-      flex: 1,
-      justifyContent: 'flex-start',
-    },
-    heading: {
-      textAlign: 'center',
-      color: '#fdcb9e',
-      marginHorizontal: 5,
-      marginTop: 30,
-    },
-    formItem: {
-      marginBottom: 20,
-    },
-  });
+  container: {
+    backgroundColor: '#d4ecff',
+    flex: 1,
+    justifyContent: 'flex-start',
+  },
+  heading: {
+    textAlign: 'center',
+    color: '#1b262c',
+    marginHorizontal: 5,
+    marginTop: 30,
+  },
+  formItem: {
+    marginBottom: 20,
+  },
+});
   

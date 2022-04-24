@@ -32,9 +32,8 @@ const SignUp = ({signUp}) => {
     const [country, setCountry] = useState('')
     const [bio, setBio] = useState('')
     const [image, setImage] = useState(
-        'https://firebase.google.com/downloads/brand-guidelines/PNG/logo-logomark.png'
-    )
-
+      'https://firebase.google.com/downloads/brand-guidelines/PNG/logo-logomark.png',
+    );
     const [imageUploading, setImageUploading] = useState(false)
     const [uploadStatus, setUploadStatus] = useState(null)
 
@@ -102,7 +101,7 @@ const SignUp = ({signUp}) => {
                   <Input
                     placeholder="name"
                     value={name}
-                    style={{color: '#eee'}}
+                    style={{color: '#000'}}
                     onChangeText={(text) => setName(text)}
                   />
                 </Item>
@@ -110,7 +109,7 @@ const SignUp = ({signUp}) => {
                   <Input
                     placeholder="email"
                     value={email}
-                    style={{color: '#eee'}}
+                    style={{color: '#000'}}
                     onChangeText={(text) => setEmail(text)}
                   />
                 </Item>
@@ -119,7 +118,7 @@ const SignUp = ({signUp}) => {
                     placeholder="password"
                     value={password}
                     secureTextEntry={true}
-                    style={{color: '#eee'}}
+                    style={{color: '#000'}}
                     onChangeText={(text) => setPassword(text)}
                   />
                 </Item>
@@ -127,7 +126,7 @@ const SignUp = ({signUp}) => {
                   <Input
                     placeholder="Instagram user name"
                     value={instaUserName}
-                    style={{color: '#eee'}}
+                    style={{color: '#000'}}
                     onChangeText={(text) => setInstaUserName(text)}
                   />
                 </Item>
@@ -135,7 +134,7 @@ const SignUp = ({signUp}) => {
                   <Input
                     placeholder="Your Short Bio"
                     value={bio}
-                    style={{color: '#eee'}}
+                    style={{color: '#000'}}
                     onChangeText={(text) => setBio(text)}
                   />
                 </Item>
@@ -143,7 +142,7 @@ const SignUp = ({signUp}) => {
                   <Input
                     placeholder="country"
                     value={country}
-                    style={{color: '#eee'}}
+                    style={{color: '#000'}}
                     onChangeText={(text) => setCountry(text)}
                   />
                 </Item>
@@ -171,17 +170,17 @@ export default connect(null, mapDispatchToProps)(SignUp)
 
 
 const styles = StyleSheet.create({
-    container: {
-      backgroundColor: '#1b262c',
-      flex: 1,
-      justifyContent: 'flex-start',
-    },
-    imageContainer: {
-      alignItems: 'center',
-      marginVertical: 5,
-    },
-    progress: {width: null, marginBottom: 20},
-    formItem: {
-      marginBottom: 20,
-    },
-  });
+  container: {
+    backgroundColor: '#d4ecff',
+    flex: 1,
+    justifyContent: 'flex-start',
+  },
+  imageContainer: {
+    alignItems: 'center',
+    marginVertical: 5,
+  },
+  progress: {width: null, marginBottom: 20},
+  formItem: {
+    marginBottom: 20,
+  },
+});

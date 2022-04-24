@@ -14,7 +14,7 @@ const Home = ({getPosts, postState, userDetails}) => {
   // getting post on component mount
   
   useEffect(() => {
-      console.log("HOME COMP", postState.posts)
+      // console.log("HOME COMP", postState.posts)
     getPosts();
   }, []);
 
@@ -60,14 +60,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#1b262c',
+    backgroundColor: '#d4ecff',
     justifyContent: 'flex-start',
     padding: 4,
     flex: 1,
   },
   emptyContainer: {
     flex: 1,
-    backgroundColor: '#1b262c',
+    backgroundColor: '#d4ecff',
     justifyContent: 'center',
     alignItems: 'center',
   },
